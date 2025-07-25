@@ -1,0 +1,152 @@
+@use "variables" as *;
+
+// Responsive breakpoints
+@mixin mobile {
+  @media (max-width: #{$breakpoint-sm - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$breakpoint-sm}) and (max-width: #{$breakpoint-lg - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$breakpoint-lg}) {
+    @content;
+  }
+}
+
+@mixin mobile-up {
+  @media (min-width: #{$breakpoint-sm}) {
+    @content;
+  }
+}
+
+@mixin tablet-up {
+  @media (min-width: #{$breakpoint-md}) {
+    @content;
+  }
+}
+
+@mixin desktop-up {
+  @media (min-width: #{$breakpoint-lg}) {
+    @content;
+  }
+}
+
+// Flexbox utilities
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// Animations
+@mixin transition($properties: all, $duration: 0.3s, $easing: ease-in-out) {
+  transition: $properties $duration $easing;
+}
+
+@mixin hover-lift {
+  @include transition(transform, 0.2s, ease-out);
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+// Text utilities
+@mixin text-gradient($color1: $primary, $color2: $secondary) {
+  background: linear-gradient(135deg, $color1, $color2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// Button mixins
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-sm $spacing-lg;
+  border-radius: $border-radius;
+  font-weight: $font-weight-medium;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  @include transition;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+@mixin button-primary {
+  @include button-base;
+  background: $primary;
+  color: white;
+
+  &:hover:not(:disabled) {
+    background: $primary-dark;
+    transform: translateY(-1px);
+  }
+}
+
+@mixin button-secondary {
+  @include button-base;
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+
+  &:hover:not(:disabled) {
+    background: var(--bg-secondary);
+    border-color: $primary;
+  }
+}
+
+// Card mixin
+@mixin card {
+  background: var(--card-bg);
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow-md;
+  padding: $spacing-xl;
+  @include transition;
+
+  &:hover {
+    box-shadow: $shadow-lg;
+  }
+}
+
+// Container mixin
+@mixin container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-lg;
+
+  @include mobile {
+    padding: 0 $spacing-md;
+  }
+}
+
+// Section spacing
+@mixin section-spacing {
+  padding: $spacing-4xl 0;
+
+  @include mobile {
+    padding: $spacing-3xl 0;
+  }
+}

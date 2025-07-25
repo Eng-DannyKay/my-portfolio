@@ -1,0 +1,136 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: var(--header-bg);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid transparent;
+  @include transition(all, 0.3s, ease);
+
+  &--scrolled {
+    border-bottom-color: var(--border-color);
+    box-shadow: $shadow-sm;
+  }
+
+  &__content {
+    @include flex-between;
+    height: 70px;
+  }
+
+  &__logo {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+  }
+
+  &__nav {
+    display: flex;
+    gap: $spacing-xl;
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &__nav-link {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-weight: $font-weight-medium;
+    padding: $spacing-sm $spacing-md;
+    border-radius: $border-radius;
+    @include transition;
+    cursor: pointer;
+
+    &:hover {
+      color: var(--text-primary);
+      background: var(--bg-secondary);
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+  }
+
+  &__theme-toggle {
+    @include flex-center;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    border-radius: $border-radius;
+    @include transition;
+    cursor: pointer;
+
+    &:hover {
+      color: var(--text-primary);
+      background: var(--border-color);
+    }
+  }
+
+  &__mobile-toggle {
+    @include flex-center;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: none;
+    color: var(--text-primary);
+    cursor: pointer;
+
+    @include mobile-up {
+      display: none;
+    }
+  }
+
+  &__mobile-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: $shadow-lg;
+    transform: translateX(-100%);
+    opacity: 0;
+    @include transition(all, 0.3s, ease);
+
+    &--open {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    @include mobile-up {
+      display: none;
+    }
+  }
+
+  &__mobile-nav {
+    @include flex-column;
+    padding: $spacing-lg;
+    gap: $spacing-sm;
+  }
+
+  &__mobile-nav-link {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-weight: $font-weight-medium;
+    padding: $spacing-md;
+    text-align: left;
+    border-radius: $border-radius;
+    @include transition;
+    cursor: pointer;
+
+    &:hover {
+      color: var(--text-primary);
+      background: var(--bg-secondary);
+    }
+  }
+}

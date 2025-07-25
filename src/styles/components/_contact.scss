@@ -1,0 +1,130 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.contact {
+  background: var(--bg-secondary);
+
+  &__header {
+    text-align: center;
+    margin-bottom: $spacing-4xl;
+  }
+
+  &__title {
+    margin-bottom: $spacing-lg;
+  }
+
+  &__description {
+    font-size: $font-size-lg;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-4xl;
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      gap: $spacing-3xl;
+    }
+  }
+
+  &__info-card {
+    @include card;
+  }
+
+  &__info-title {
+    font-size: $font-size-xl;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__info-description {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: $spacing-2xl;
+  }
+
+  &__info-list {
+    @include flex-column;
+    gap: $spacing-lg;
+    margin-bottom: $spacing-2xl;
+  }
+
+  &__info-item {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+  }
+
+  &__info-icon {
+    @include flex-center;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, $primary, $secondary);
+    color: white;
+    border-radius: $border-radius;
+    flex-shrink: 0;
+  }
+
+  &__info-details {
+    @include flex-column;
+    gap: $spacing-xs;
+  }
+
+  &__info-label {
+    display: flex;
+    align-items: flex-start;
+    font-size: $font-size-sm;
+    color: var(--text-muted);
+    font-weight: $font-weight-medium;
+  }
+
+  &__info-value {
+    color: var(--text-primary);
+    font-weight: $font-weight-medium;
+    @include transition;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+
+  &__social {
+    h4 {
+      margin-bottom: $spacing-md;
+      font-size: $font-size-lg;
+    }
+  }
+
+  &__social-links {
+    display: flex;
+    gap: $spacing-md;
+  }
+
+  &__social-link {
+    @include flex-center;
+    width: 40px;
+    height: 40px;
+    background: var(--bg-primary);
+    color: var(--text-secondary);
+    border-radius: $border-radius;
+    @include transition;
+    @include hover-lift;
+
+    &:hover {
+      color: white;
+      background: $primary;
+    }
+  }
+
+  &__form-container {
+    @include flex-center;
+  }
+
+  &__form {
+    width: 100%;
+    max-width: 500px;
+  }
+}

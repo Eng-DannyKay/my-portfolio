@@ -1,0 +1,106 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Headings
+h1 {
+  font-size: $font-size-4xl;
+  font-weight: $font-weight-bold;
+
+  @include mobile {
+    font-size: $font-size-3xl;
+  }
+}
+
+h2 {
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-bold;
+
+  @include mobile {
+    font-size: $font-size-2xl;
+  }
+}
+
+h3 {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-semibold;
+
+  @include mobile {
+    font-size: $font-size-xl;
+  }
+}
+
+h4 {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
+}
+
+h5 {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-medium;
+}
+
+h6 {
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+}
+
+// Body text
+.text-large {
+  font-size: $font-size-lg;
+  line-height: 1.7;
+}
+
+.text-small {
+  font-size: $font-size-sm;
+}
+
+.text-xs {
+  font-size: $font-size-xs;
+}
+
+// Text colors
+.text-primary {
+  color: var(--text-primary);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.text-gradient {
+  @include text-gradient;
+}
+
+// Text alignment
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+// Font weights
+.font-normal {
+  font-weight: $font-weight-normal;
+}
+
+.font-medium {
+  font-weight: $font-weight-medium;
+}
+
+.font-semibold {
+  font-weight: $font-weight-semibold;
+}
+
+.font-bold {
+  font-weight: $font-weight-bold;
+}

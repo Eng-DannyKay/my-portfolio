@@ -1,0 +1,148 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.hero {
+  min-height: 100vh;
+  @include flex-center;
+  position: relative;
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  padding-top: 70px;
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-4xl;
+    align-items: center;
+    width: 100%;
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      gap: $spacing-3xl;
+      text-align: center;
+    }
+  }
+
+  &__text {
+    @include flex-column;
+    gap: $spacing-lg;
+  }
+
+  &__title {
+    font-size: $font-size-5xl;
+    line-height: 1.1;
+    margin-bottom: $spacing-md;
+
+    @include mobile {
+      font-size: $font-size-4xl;
+    }
+  }
+
+  &__subtitle {
+    font-size: $font-size-xl;
+    color: var(--text-secondary);
+    font-weight: $font-weight-medium;
+  }
+
+  &__description {
+    font-size: $font-size-lg;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    max-width: 500px;
+  }
+
+  &__actions {
+    display: flex;
+    gap: $spacing-lg;
+    margin-top: $spacing-lg;
+
+    @include mobile {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__social {
+    display: flex;
+    gap: $spacing-md;
+    margin-top: $spacing-xl;
+
+    @include mobile {
+      justify-content: center;
+    }
+  }
+
+  &__social-link {
+    @include flex-center;
+    width: 40px;
+    height: 40px;
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    border-radius: $border-radius;
+    @include transition;
+    @include hover-lift;
+
+    &:hover {
+      color: $primary;
+      background: var(--border-color);
+    }
+  }
+
+  &__image {
+    @include flex-center;
+    position: relative;
+
+    @include mobile {
+      order: -1;
+    }
+  }
+
+  &__image-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+
+    @include mobile {
+      width: 250px;
+      height: 250px;
+    }
+  }
+
+  &__image-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid var(--border-color);
+    position: relative;
+    z-index: 2;
+  }
+
+  &__image-decoration {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: linear-gradient(135deg, $primary, $secondary);
+    border-radius: 50%;
+    z-index: 1;
+    opacity: 0.1;
+  }
+
+  &__scroll-indicator {
+    position: absolute;
+    bottom: $spacing-xl;
+    left: 50%;
+    transform: translateX(-50%);
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    @include transition;
+
+    &:hover {
+      color: var(--text-primary);
+      transform: translateX(-50%) translateY(-2px);
+    }
+  }
+}

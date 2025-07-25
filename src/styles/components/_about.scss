@@ -1,0 +1,68 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+.about {
+  background: var(--bg-secondary);
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-4xl;
+    align-items: start;
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      gap: $spacing-3xl;
+    }
+  }
+
+  &__title {
+    margin-bottom: $spacing-xl;
+  }
+
+  &__description {
+    @include flex-column;
+    gap: $spacing-lg;
+
+    p {
+      font-size: $font-size-lg;
+      line-height: 1.7;
+    }
+  }
+
+  &__highlights {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-lg;
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__highlight-card {
+    @include card;
+    text-align: center;
+    padding: $spacing-xl;
+    @include hover-lift;
+  }
+
+  &__highlight-icon {
+    @include flex-center;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, $primary, $secondary);
+    color: white;
+    border-radius: $border-radius-xl;
+    margin: 0 auto $spacing-lg;
+  }
+
+  &__highlight-title {
+    font-size: $font-size-lg;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__highlight-description {
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+}

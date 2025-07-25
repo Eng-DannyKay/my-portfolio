@@ -1,0 +1,91 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.skills {
+  background: var(--bg-secondary);
+
+  &__header {
+    text-align: center;
+    margin-bottom: $spacing-4xl;
+  }
+
+  &__title {
+    margin-bottom: $spacing-lg;
+  }
+
+  &__description {
+    font-size: $font-size-lg;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  &__filters {
+    display: flex;
+    justify-content: center;
+    gap: $spacing-md;
+    margin-bottom: $spacing-3xl;
+    flex-wrap: wrap;
+  }
+
+  &__filter {
+    @include button-secondary;
+
+    &--active {
+      background: $primary;
+      color: white;
+      border-color: $primary;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: $spacing-xl;
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__item {
+    @include card;
+  }
+
+  &__item-header {
+    @include flex-between;
+    margin-bottom: $spacing-md;
+  }
+
+  &__item-name {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+  }
+
+  &__item-level {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-bold;
+    color: $primary;
+  }
+
+  &__item-bar {
+    height: 8px;
+    background: var(--border-color);
+    border-radius: $border-radius-sm;
+    overflow: hidden;
+  }
+
+  &__item-progress {
+    height: 100%;
+    background: linear-gradient(90deg, $primary, $secondary);
+    border-radius: $border-radius-sm;
+    @include transition(width, 1s, ease-out);
+    animation: skillProgress 2s ease-out forwards;
+  }
+}
+
+@keyframes skillProgress {
+  from {
+    width: 0%;
+  }
+}

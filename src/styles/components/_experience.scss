@@ -1,0 +1,143 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.experience {
+  &__header {
+    text-align: center;
+    margin-bottom: $spacing-4xl;
+  }
+
+  &__title {
+    margin-bottom: $spacing-lg;
+  }
+
+  &__description {
+    font-size: $font-size-lg;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-4xl;
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      gap: $spacing-3xl;
+    }
+  }
+
+  &__section-title {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    font-size: $font-size-xl;
+    margin-bottom: $spacing-2xl;
+    color: var(--text-primary);
+  }
+
+  &__timeline {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 20px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--border-color);
+    }
+  }
+
+  &__item {
+    position: relative;
+    margin-bottom: $spacing-3xl;
+    margin-left: $spacing-2xl;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__item-icon {
+    position: absolute;
+    left: -32px;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    @include flex-center;
+    background: var(--card-bg);
+    border: 2px solid $primary;
+    border-radius: 50%;
+    color: $primary;
+  }
+
+  &__item-content {
+    @include card;
+    padding: $spacing-xl;
+  }
+
+  &__item-header {
+    margin-bottom: $spacing-lg;
+  }
+
+  &__item-title {
+    font-size: $font-size-xl;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__item-meta {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+    color: var(--text-secondary);
+    font-size: $font-size-sm;
+
+    @include mobile {
+      gap: $spacing-sm;
+    }
+  }
+
+  &__item-company {
+    font-weight: $font-weight-semibold;
+    color: $primary;
+  }
+
+  &__item-location,
+  &__item-date {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+  }
+
+  &__item-description {
+    margin-bottom: $spacing-lg;
+
+    p {
+      margin-bottom: $spacing-sm;
+      line-height: 1.6;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__item-technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-sm;
+  }
+
+  &__item-tech {
+    background: var(--bg-primary);
+    color: var(--text-secondary);
+    padding: $spacing-xs $spacing-sm;
+    border-radius: $border-radius-sm;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-medium;
+  }
+}

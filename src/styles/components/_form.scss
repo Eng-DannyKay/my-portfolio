@@ -1,0 +1,66 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.form {
+  &__group {
+    margin-bottom: $spacing-lg;
+  }
+
+  &__label {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: $spacing-sm;
+    font-weight: $font-weight-medium;
+    color: var(--text-primary);
+  }
+
+  &__input,
+  &__textarea {
+    width: 100%;
+    padding: $spacing-md;
+    border: 1px solid var(--border-color);
+    border-radius: $border-radius;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: $font-size-base;
+    @include transition;
+
+    &:focus {
+      outline: none;
+      border-color: $primary;
+      box-shadow: 0 0 0 3px rgba($primary, 0.1);
+    }
+
+    &::placeholder {
+      color: var(--text-muted);
+    }
+  }
+
+  &__textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  &__actions {
+    margin-top: $spacing-xl;
+  }
+
+  &__message {
+    margin-top: $spacing-md;
+    padding: $spacing-md;
+    border-radius: $border-radius;
+    font-size: $font-size-sm;
+
+    &--success {
+      background: rgba($success, 0.1);
+      color: $success;
+      border: 1px solid rgba($success, 0.2);
+    }
+
+    &--error {
+      background: rgba($error, 0.1);
+      color: $error;
+      border: 1px solid rgba($error, 0.2);
+    }
+  }
+}
