@@ -40,8 +40,8 @@ const Hero: React.FC = () => {
                                 Get In Touch
                             </button>
                             <a
-                                href="/resume.pdf"
-                                download
+                                href="my-cv.pdf"
+                                download="./my-cv.pdf"
                                 className="btn btn--secondary"
                             >
                                 <Download size={18} />
@@ -50,13 +50,13 @@ const Hero: React.FC = () => {
                         </div>
 
                         <div className="hero__social animation-delay-800">
-                            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hero__social-link">
+                            <a href="https://github.com/Eng-DannyKay" target="_blank" rel="noopener noreferrer" className="hero__social-link">
                                 <Github size={20} />
                             </a>
-                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hero__social-link">
+                            <a href="https://www.linkedin.com/in/daniel-forson-394b04223/" target="_blank" rel="noopener noreferrer" className="hero__social-link">
                                 <Linkedin size={20} />
                             </a>
-                            <a href="mailto:alex@example.com" className="hero__social-link">
+                            <a href="mailto:danielkojoforson27@gmail.com" className="hero__social-link">
                                 <Mail size={20} />
                             </a>
                         </div>

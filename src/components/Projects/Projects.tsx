@@ -64,6 +64,7 @@ const Projects: React.FC = () => {
     </div>
 
     <div className="projects__card-actions">
+        {project.githubUrl && project.githubUrl !== '#' ? (
     <a
         href={project.githubUrl}
     target="_blank"
@@ -73,6 +74,37 @@ const Projects: React.FC = () => {
     <Github size={18} />
     Code
     </a>
+        ): (
+            <span className="projects__card-link disabled" title="Internal project and Private repo">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+        <path
+            d="M12 17a2 2 0 0 0 2-2V9a2 2 0 1 0-4 0v6a2 2 0 0 0 2 2z"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+        <path
+            d="M5 12V9a7 7 0 0 1 14 0v3"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+        <rect
+            x="3"
+            y="12"
+            width="18"
+            height="10"
+            rx="2"
+            ry="2"
+            stroke="currentColor"
+            strokeWidth="2"
+        />
+      </svg>
+      Private
+    </span>
+        )}
     <a
     href={project.liveUrl}
     target="_blank"

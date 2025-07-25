@@ -87,7 +87,7 @@ const Contact: React.FC = () => {
                 <div className="contact__header">
                     <h2 className="contact__title animate-fade-in-up">Get In Touch</h2>
                     <p className="contact__description animate-fade-in-up animation-delay-200">
-                        Let's discuss your next project or just say hello
+                        Let's discuss your next project or just say hello  👋
                     </p>
                 </div>
 
