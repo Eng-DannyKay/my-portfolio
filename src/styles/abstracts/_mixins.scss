@@ -111,11 +111,6 @@
   background: transparent;
   color: var(--text-primary);
   border: 1px solid var(--border-color);
-
-  &:hover:not(:disabled) {
-    background: var(--bg-secondary);
-    border-color: $primary;
-  }
 }
 
 // Card mixin
