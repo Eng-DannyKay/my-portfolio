@@ -4,6 +4,7 @@
 .contact {
   background: var(--bg-secondary);
 
+
   &__header {
     text-align: center;
     margin-bottom: $spacing-4xl;
@@ -24,6 +25,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: $spacing-4xl;
+   
 
     @include mobile {
       grid-template-columns: 1fr;
@@ -33,6 +35,8 @@
 
   &__info-card {
     @include card;
+    word-break: break-all;
+    
   }
 
   &__info-title {
