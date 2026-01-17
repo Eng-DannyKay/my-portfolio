@@ -2,32 +2,39 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "../axios";
 import type { ContactState } from "./contactSlice";
 
-const CONTACT = "api/v1" as const;
+interface ApiError {
+  response?: {
+    data?: {
+      message?: string;
+    };
+  };
+  message?: string;
+}
 
 export const getClientContactInfo = createAsyncThunk(
-  `${CONTACT}/getClientContactInfo`,
+  "contact/getClientContactInfo",
   async (_, { rejectWithValue }) => {
     try {
-      const response = await axios.get<ContactState[]>(`${CONTACT}`);
+      const response = await axios.get<ContactState[]>("/api/v1/contact");
 
       if (!response) {
-        throw new Error("Failed to send message");
+        throw new Error("Failed to fetch contact information");
       }
 
-      const data = response.data;
-      return data;
+      return response.data;
     } catch (err) {
-      return rejectWithValue(`Failed to fetch contact information,${err}`);
+      const error = err as ApiError;
+      return rejectWithValue(error.response?.data?.message || error.message || "Failed to fetch contact information");
     }
   }
 );
 
 export const sendContactMessage = createAsyncThunk(
-  `${CONTACT}`,
+  "contact/sendContactMessage",
   async (contactData: Omit<ContactState, "id">, { rejectWithValue }) => {
     try {
       const response = await axios.post<ContactState>(
-        `${CONTACT}/contact`,
+        "/api/v1/contact",
         contactData
       );
 
@@ -37,7 +44,8 @@ export const sendContactMessage = createAsyncThunk(
 
       return response.data;
     } catch (err) {
-      return rejectWithValue(`Failed to send message: ${err}`);
+      const error = err as ApiError;
+      return rejectWithValue(error.response?.data?.message || error.message || "Failed to send message");
     }
   }
 );
