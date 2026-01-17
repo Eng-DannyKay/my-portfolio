@@ -1,5 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter } from 'lucide-react';
+import { useAppDispatch, useAppSelector } from '../../lib/features/hooks';
+import { sendContactMessage } from '../../lib/features/contact/contactThunk';
+import { selectContactLoading, selectSubmitStatus } from '../../lib/features/contact/contactSelector';
+import { resetSubmitStatus } from '../../lib/features/contact/contactSlice';
 
 interface FormData {
     name: string;
@@ -9,14 +13,16 @@ interface FormData {
 }
 
 const Contact: React.FC = () => {
+    const dispatch = useAppDispatch();
+    const isSubmitting = useAppSelector(selectContactLoading);
+    const submitStatus = useAppSelector(selectSubmitStatus);
+    
     const [formData, setFormData] = useState<FormData>({
         name: '',
         email: '',
         subject: '',
         message: ''
     });
-    const [isSubmitting, setIsSubmitting] = useState(false);
-    const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setFormData(prev => ({
@@ -25,20 +31,28 @@ const Contact: React.FC = () => {
         }));
     };
 
+    useEffect(() => {
+        if (submitStatus === 'success') {
+            setFormData({ name: '', email: '', subject: '', message: '' });
+            const timer = setTimeout(() => {
+                dispatch(resetSubmitStatus());
+            }, 5000);
+            return () => clearTimeout(timer);
+        } else if (submitStatus === 'error') {
+            const timer = setTimeout(() => {
+                dispatch(resetSubmitStatus());
+            }, 5000);
+            return () => clearTimeout(timer);
+        }
+    }, [submitStatus, dispatch]);
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        setIsSubmitting(true);
-
-        // Simulate form submission
+        
         try {
-            await new Promise(resolve => setTimeout(resolve, 2000));
-            setSubmitStatus('success');
-            setFormData({ name: '', email: '', subject: '', message: '' });
+            await dispatch(sendContactMessage(formData)).unwrap();
         } catch (error) {
-            setSubmitStatus('error');
-        } finally {
-            setIsSubmitting(false);
-            setTimeout(() => setSubmitStatus('idle'), 5000);
+            console.error('Failed to send message:', error);
         }
     };
 
