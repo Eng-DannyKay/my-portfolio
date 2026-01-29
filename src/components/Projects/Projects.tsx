@@ -105,7 +105,9 @@ const Projects: React.FC = () => {
       Private
     </span>
         )}
-    <a
+
+        {project.liveUrl && project.liveUrl !== '#' ? (
+ <a
     href={project.liveUrl}
     target="_blank"
     rel="noopener noreferrer"
@@ -114,6 +116,8 @@ const Projects: React.FC = () => {
     <ExternalLink size={18} />
     Live Demo
     </a>
+        ):(<></>)}
+   
     </div>
     </div>
     </div>

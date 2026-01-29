@@ -1,9 +1,9 @@
-import amaliblogImg from "../assets/amaliblog.png";
-import dodokpoImg from "../assets/dodokpo.png";
-import quizappImg from "../assets/quizapp.png";
+import amaliblogImg from "../assets/blog.jpg";
+import dodokpoImg from "../assets/assessment.jpg";
+import quizappImg from "../assets/quiz.jpg";
 import devjobImg from "../assets/devjob.png";
-import ecommerceImg from "../assets/ecommerce.png";
-import configuratorImg from "../assets/configurator.png";
+import ecommerceImg from "../assets/ecommerce.jpg";
+import configuratorImg from "../assets/3d.jpeg";
 
 export interface Project {
   id: number;
@@ -15,16 +15,17 @@ export interface Project {
   githubUrl: string;
   liveUrl: string;
   featured: boolean;
+  isPrivateProject?: boolean;
 }
 
 export const projects: Project[] = [
   {
     id: 1,
-    title: "Amaliblog",
+    title: "Blogging Platform ",
     description:
-      "Internal blogging platform for Amalitech with article workflow and user dashboard",
+      "Blogging Platform with article workflow and user dashboard",
     longDescription:
-      "Amaliblog is an internal blogging platform designed for the Amalitech team. It features an intuitive rich text editor for creating articles, a multi-step review and approval workflow, and a user-friendly reader interface. Users can manage their posts through a personalized dashboard, ensuring seamless article creation, submission, and publishing within the organization.",
+      "It features an intuitive rich text editor for creating articles, a multi-step review and approval workflow, and a user-friendly reader interface. Users can manage their posts through a personalized dashboard, ensuring seamless article creation, submission, and publishing within the organization.",
     image: amaliblogImg,
     technologies: [
       "Angular",
@@ -35,21 +36,23 @@ export const projects: Project[] = [
       "Chart.js",
     ],
     githubUrl: "#",
-    liveUrl: "https://amaliblog.amalitech.org",
+    liveUrl: "#",
     featured: true,
+    isPrivateProject: true,
   },
   {
     id: 2,
-    title: "Dodokpo Assessment Platform",
+    title: "Assessment Platform",
     description:
       "Comprehensive test management and candidate analytics platform",
     longDescription:
-      "Dodokpo is a full-featured assessment platform designed for educational institutions and training organizations. It allows test managers to create, schedule, and dispatch tests, while providing candidates with a real-time dashboard to track their performance and progress. The platform includes support for various question types, auto-grading, proctoring protocols, and insightful analytics visualizations. ",
+      "Assessment Platform with a full-featured designed for educational institutions and training organizations. It allows test managers to create, schedule, and dispatch tests, while providing candidates with a real-time dashboard to track their performance and progress. The platform includes support for various question types, auto-grading, proctoring protocols, and insightful analytics visualizations. ",
     image: dodokpoImg,
     technologies: ["Angular", "TypeScript", "Ngrx", "Express.Js", "PostgreSQL"],
     githubUrl: "#",
-    liveUrl: "https://dodokpo.com/",
+    liveUrl: "#",
     featured: true,
+    isPrivateProject: true,
   },
   {
     id: 3,
@@ -63,6 +66,7 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/Eng-DannyKay/frontendQuizApp_",
     liveUrl: "https://frontend-quiz-app-theta.vercel.app/",
     featured: false,
+    isPrivateProject: false,
   },
   {
     id: 4,
@@ -76,6 +80,7 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/Eng-DannyKay/DevJobs",
     liveUrl: "https://devjobsproject1.netlify.app/",
     featured: false,
+    isPrivateProject: false,
   },
 
   {
@@ -89,7 +94,8 @@ export const projects: Project[] = [
     technologies: ["React", "Node.js", "MongoDB", "Express", "Stripe", "JWT"],
     githubUrl: "https://github.com/Eng-DannyKay/ecommerce-shop",
     liveUrl: "https://ecommerceshopproject.netlify.app/",
-    featured: true,
+    featured: false,
+    isPrivateProject: false,
   },
   {
     id: 6,
@@ -97,7 +103,7 @@ export const projects: Project[] = [
     description:
       "Interactive 3D modeling platform with admin approval workflow",
     longDescription:
-      "A cutting-edge web-based platform that allows users to upload and configure 3D models for custom product design. Once a model is submitted, it is automatically transformed into a visual, interactive 3D view for previewing. An integrated admin dashboard enables reviewers to inspect the model, assess manufacturability, and approve or reject it for production. The system supports real-time feedback, secure file handling, and user notifications. Built with Angular, Nest.js, and Three.js libraries for 3D rendering.Use this password to log in APP_PASSWORD=J3n8r4v2g5k7",
+      "Full-stack cutting-edge web-based platform that allows users to upload and configure 3D models for custom product design. Once a model is submitted, it is automatically transformed into a visual, interactive 3D view for previewing. An integrated admin dashboard enables reviewers to inspect the model, assess manufacturability, and approve or reject it for production. The system supports real-time feedback, secure file handling, and user notifications. Built with Angular, Nest.js, and Three.js libraries for 3D rendering.Use this password to log in APP_PASSWORD=J3n8r4v2g5k7",
     image: configuratorImg,
     technologies: [
       "Angular",
@@ -109,6 +115,7 @@ export const projects: Project[] = [
     ],
     githubUrl:
       "https://github.com/Bilal-Abubakari/Accelerator-Injection-Molding",
+    isPrivateProject: true,
     liveUrl: "https://accelerator-injection-molding-chi.vercel.app/",
     featured: true,
   },

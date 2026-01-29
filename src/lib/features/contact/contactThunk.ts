@@ -8,7 +8,7 @@ interface ApiError {
       message?: string;
     };
   };
-  message?: string;
+  message?: string
 }
 
 export const getClientContactInfo = createAsyncThunk(
