@@ -4,6 +4,9 @@ import quizappImg from "../assets/quiz.jpg";
 import devjobImg from "../assets/devjob.png";
 import ecommerceImg from "../assets/ecommerce.jpg";
 import configuratorImg from "../assets/3d.jpeg";
+import portfolioImg from "../assets/portfolio.jpg";
+import wheelsImg from "../assets/car.jpg";
+
 
 export interface Project {
   id: number;
@@ -22,8 +25,7 @@ export const projects: Project[] = [
   {
     id: 1,
     title: "Blogging Platform ",
-    description:
-      "Blogging Platform with article workflow and user dashboard",
+    description: "Blogging Platform with article workflow and user dashboard",
     longDescription:
       "It features an intuitive rich text editor for creating articles, a multi-step review and approval workflow, and a user-friendly reader interface. Users can manage their posts through a personalized dashboard, ensuring seamless article creation, submission, and publishing within the organization.",
     image: amaliblogImg,
@@ -92,7 +94,7 @@ export const projects: Project[] = [
       "A comprehensive e-commerce platform built with React, Node.js, and MongoDB. Features include user authentication, product catalog, shopping cart, order management, and Stripe payment integration.",
     image: ecommerceImg,
     technologies: ["React", "Node.js", "MongoDB", "Express", "Stripe", "JWT"],
-    githubUrl: "https://github.com/Eng-DannyKay/ecommerce-shop",
+    githubUrl: "#",
     liveUrl: "https://ecommerceshopproject.netlify.app/",
     featured: false,
     isPrivateProject: false,
@@ -118,5 +120,50 @@ export const projects: Project[] = [
     isPrivateProject: true,
     liveUrl: "https://accelerator-injection-molding-chi.vercel.app/",
     featured: true,
+  },
+  {
+    id: 7,
+    title: "Personal Portfolio Website",
+    description:
+      "Modern full-stack portfolio showcasing projects and professional experience",
+    longDescription:
+      "A responsive, feature-rich portfolio website built to showcase development projects, technical skills, and professional experience. The frontend leverages React with TypeScript, Redux Toolkit for state management, and SCSS for styling with a modern dark/light theme system. The backend is powered by Node.js and Express with MongoDB for data persistence, featuring a contact form with email notifications. The site includes smooth animations, project filtering, an interactive skills section, and a comprehensive experience timeline. Deployed with optimized performance and SEO best practices.",
+    image: portfolioImg,
+    technologies: [
+      "React",
+      "TypeScript",
+      "Redux Toolkit",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "SCSS",
+      "Vite",
+    ],
+    githubUrl: "https://github.com/Eng-DannyKay/my-portfolio",
+    liveUrl: "https://danielforson.onrender.com/",
+    featured: true,
+    isPrivateProject: false,
+  },
+  {
+    id: 8,
+    title: "Wheels Car Rental",
+    description:
+      "Full-featured car rental platform with booking management and payment processing",
+    longDescription:
+      "A comprehensive car rental application that streamlines the vehicle booking process. Users can browse available vehicles, view detailed specifications, check real-time availability, and make reservations with flexible date ranges. The platform features secure payment integration, booking management dashboard, and automated confirmation emails. Includes advanced search filters, dynamic pricing based on rental duration, and a responsive design optimized for both mobile and desktop users. Built with modern web technologies to ensure fast performance and seamless user experience.",
+    image: wheelsImg,
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Redux",
+      "Tailwind CSS",
+    ],
+    githubUrl: "https://github.com/Kwabena-Owusu-Achiaw/wheels-fe",
+    liveUrl: "https://wheels-fe.vercel.app/",
+    featured: true,
+    isPrivateProject: false,
   },
 ];
