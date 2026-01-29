@@ -110,6 +110,7 @@ export const projects: Project[] = [
     technologies: [
       "Angular",
       "Nest.js",
+      'SCSS',
       "Three.js",
       "PostgreSQL",
       "Ngrx",
@@ -117,7 +118,7 @@ export const projects: Project[] = [
     ],
     githubUrl:
       "https://github.com/Bilal-Abubakari/Accelerator-Injection-Molding",
-    isPrivateProject: true,
+    isPrivateProject: false,
     liveUrl: "https://accelerator-injection-molding-chi.vercel.app/",
     featured: true,
   },
