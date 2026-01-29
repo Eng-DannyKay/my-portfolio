@@ -40,8 +40,7 @@ const Hero: React.FC = () => {
                                 Get In Touch
                             </button>
                             <a
-                                href="my-cv.pdf"
-                                download="./my-cv.pdf"
+                                href="mailto:danielforson57@gmail.com?subject=CV%20Request&body=Hi%20Daniel%2C%0A%0AI%20would%20like%20to%20request%20a%20copy%20of%20your%20CV.%0A%0AThank%20you!"
                                 className="btn btn--secondary"
                             >
                                 <Download size={18} />
